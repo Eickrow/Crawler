@@ -1,7 +1,6 @@
 package com.plugins.crawler.restful.service;
 
 import com.plugins.crawler.framework.whois.ParsedWhoisResponse;
-import com.plugins.crawler.framework.whois.WhoisResponse;
 import com.plugins.crawler.utils.StringUtils;
 import org.apache.commons.net.whois.WhoisClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.net.Socket;
-import java.net.SocketException;
-import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -101,21 +97,5 @@ public class RestfulService {
         });
         return generateCodeMap(request, "0", dataMap);
     }
-
-//    private Map<String, Object> parseWhois(String whois) {
-//        Map<String, Object> whoisMap = new HashMap<>();
-//        List<String> lines = Arrays.asList(whois.split("\r\n"));
-//        WhoisResponse whoisResponse = new WhoisResponse();
-//        lines.stream().forEach(line -> {
-//            try {
-//                ParsedWhoisResponse.parseContact(line, whoisResponse);
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        whoisMap.put("test", whoisResponse);
-//        return whoisMap;
-//    }
-
 
 }
